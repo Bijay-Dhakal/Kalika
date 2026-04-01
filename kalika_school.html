@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalika Manavgyan Secondary School - Butwal</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #2e7d32;
+    --green-light: #4caf50;
+    --green-pale: #e8f5e9;
+    --amber: #f57f17;
+    --amber-light: #fff8e1;
+    --red: #c62828;
+    --white: #ffffff;
+    --text: #1a2e1a;
+    --text-muted: #4a5e4a;
+    --border: #c8e6c9;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    background: #f9fdf9;
+    scroll-behavior: smooth;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--green);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    height: 60px;
+  }
+
+  .nav-brand {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo-icon {
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover { background: rgba(255,255,255,0.2); color: white; }
+
+  /* HERO */
+  #home {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
+    color: white;
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #home::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  #home::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-school-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  #home h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.6rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    opacity: 0.85;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-location {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat .num {
+    font-size: 2rem;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+  }
+
+  .hero-stat .lbl {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.25);
+    margin-top: 0.5rem;
+  }
+
+  /* NOTICE TICKER */
+  .notice-bar {
+    background: var(--amber);
+    color: #3e2000;
+    padding: 10px 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .notice-label {
+    background: #3e2000;
+    color: #fff8e1;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .notice-text {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 4rem 1.5rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.9rem;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-line {
+    width: 50px;
+    height: 4px;
+    background: var(--green-light);
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+
+  /* ABOUT */
+  #about {
+    background: white;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 0.97rem;
+  }
+
+  .principal-card {
+    background: var(--green-pale);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .principal-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin: 0 auto 1rem;
+    font-weight: 800;
+  }
+
+  .principal-card h3 {
+    font-size: 1.2rem;
+    color: var(--green);
+    font-weight: 800;
+  }
+
+  .principal-card .role {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .principal-quote {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-left: 3px solid var(--green-light);
+    padding-left: 0.8rem;
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  .value-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .value-card {
+    background: var(--green-pale);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+
+  .value-card .icon { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
+  .value-card h4 { font-size: 0.9rem; font-weight: 800; color: var(--green); margin-bottom: 0.3rem; }
+  .value-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* COURSES */
+  #courses {
+    background: var(--green-pale);
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .course-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(46,125,50,0.12);
+  }
+
+  .course-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .course-card h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+    color: var(--text);
+  }
+
+  .course-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+
+  .course-tag {
+    display: inline-block;
+    background: var(--green-pale);
+    color: var(--green);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  /* EXTRA CURRICULUM */
+  #extra {
+    background: white;
+  }
+
+  .extra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .extra-card {
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.3rem;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .extra-card:hover {
+    border-color: var(--green-light);
+    background: var(--green-pale);
+  }
+
+  .extra-card .icon { font-size: 2.2rem; display: block; margin-bottom: 0.7rem; }
+  .extra-card h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text); }
+  .extra-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* TEACHERS */
+  #teachers {
+    background: var(--green-pale);
+  }
+
+  .teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .teacher-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .teacher-card:hover {
+    box-shadow: 0 4px 16px rgba(46,125,50,0.1);
+  }
+
+  .teacher-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  .teacher-info h3 {
+    font-size: 0.97rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+  }
+
+  .teacher-info .subject {
+    font-size: 0.8rem;
+    color: var(--green);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .teacher-info .phone {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .teacher-info .phone a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--green);
+    color: white;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+
+  footer h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  footer p {
+    opacity: 0.75;
+    font-size: 0.88rem;
+    margin-bottom: 0.3rem;
+  }
+
+  footer .footer-bottom {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+
+  /* Responsive */
+  @media(max-width: 700px) {
+    #home h1 { font-size: 1.8rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .value-cards { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+
+  /* Color variants for teacher avatars */
+  .av-1 { background: #2e7d32; }
+  .av-2 { background: #1565c0; }
+  .av-3 { background: #6a1b9a; }
+  .av-4 { background: #ad1457; }
+  .av-5 { background: #e65100; }
+  .av-6 { background: #00695c; }
+  .av-7 { background: #4527a0; }
+  .av-8 { background: #558b2f; }
+  .av-9 { background: #283593; }
+  .av-10 { background: #880e4f; }
+  .av-11 { background: #bf360c; }
+  .av-12 { background: #006064; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#home">
+      <div class="nav-logo-icon">📚</div>
+      KMSS
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#extra">Activities</a></li>
+      <li><a href="#teachers">Teachers</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- NOTICE BAR -->
+<div class="notice-bar">
+  <span class="notice-label">📢 NOTICE</span>
+  <div class="notice-text">
+    &nbsp;&nbsp;Admission open for 2081 B.S. &nbsp;|&nbsp; Annual Sports Day – Chaitra 15, 2081 &nbsp;|&nbsp; Parent-Teacher Meeting scheduled for Falgun 28 &nbsp;|&nbsp; Result of SEE Mock Exam published
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="container">
+    <span class="hero-badge">🇳🇵 Estd. Butwal, Lumbini Province</span>
+    <span class="hero-school-icon">🏫</span>
+    <h1>Kalika Manavgyan<br>Secondary School</h1>
+    <p class="hero-sub">Excellence in Education &middot; Nurturing Future Leaders</p>
+    <p class="hero-location">📍 Butwal-12, Rupandehi, Lumbini Province, Nepal</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">700+</span>
+        <span class="lbl">Students</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <span class="num">30+</span>
+        <span class="lbl">Teachers</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <span class="num">Class 1–10</span>
+        <span class="lbl">Grades</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <span class="num">95%</span>
+        <span class="lbl">SEE Pass Rate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-line"></div>
+    <h2 class="section-title">About Our School</h2>
+    <p class="section-sub">Building knowledge, character and community since its founding in Butwal.</p>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Kalika Manavgyan Secondary School is one of the well-known educational institutions located in Butwal, Rupandehi district of Lumbini Province. The school is committed to providing quality education from Class 1 through Class 10 (SEE level), shaping students with strong academic foundations and good character.
+        </p>
+        <p>
+          Our school follows the national curriculum set by the Government of Nepal and emphasizes both theoretical learning and practical skills. With experienced teachers, a supportive environment, and a strong community bond, students at Kalika Manavgyan grow to become responsible and capable citizens.
+        </p>
+        <p>
+          We believe every child deserves quality education regardless of background. Our dedicated staff works every day to make learning engaging, safe, and meaningful for all students.
+        </p>
+
+        <div class="value-cards">
+          <div class="value-card">
+            <span class="icon">🎯</span>
+            <h4>Our Mission</h4>
+            <p>Quality education for every student in a nurturing environment.</p>
+          </div>
+          <div class="value-card">
+            <span class="icon">👁️</span>
+            <h4>Our Vision</h4>
+            <p>Developing responsible, skilled and ethical future leaders.</p>
+          </div>
+          <div class="value-card">
+            <span class="icon">💚</span>
+            <h4>Our Values</h4>
+            <p>Respect, Integrity, Discipline and Community Spirit.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="principal-card">
+          <div class="principal-avatar">DT</div>
+          <h3>Mr. Dinesh Thapa</h3>
+          <p class="role">🏆 Principal, Kalika Manavgyan Secondary School</p>
+          <p class="principal-quote">
+            "Education is not just about acquiring knowledge — it is about building the character and confidence that will help our students face life's challenges with strength and wisdom. At Kalika Manavgyan, we are proud of every student who walks through our doors."
+          </p>
+          <br>
+          <div style="background: white; border-radius: 8px; padding: 0.8rem; border: 1px solid var(--border); text-align: left; font-size: 0.85rem; color: var(--text-muted);">
+            <div style="margin-bottom: 4px;"><strong style="color: var(--text);">📞</strong> Office: Butwal-12, Rupandehi</div>
+            <div><strong style="color: var(--text);">🏛️</strong> Affiliated: Government of Nepal / DEO Rupandehi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="container">
+    <div class="section-line"></div>
+    <h2 class="section-title">Our Courses</h2>
+    <p class="section-sub">We offer a complete curriculum from primary to secondary level following the National Curriculum Framework of Nepal.</p>
+
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-icon" style="background: #e8f5e9;">📖</div>
+        <h3>Nepali Language</h3>
+        <p>Mother tongue literacy, grammar, creative writing, poetry and Nepali literature from Class 1 to 10.</p>
+        <span class="course-tag">Class 1–10</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon" style="background: #e3f2fd;">🔤</div>
+        <h3>English Language</h3>
+        <p>Reading, writing, grammar and communication skills. Special focus on spoken English and writing proficiency.</p>
+        <span class="course-tag">Class 1–10</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon" style="background: #fff3e0;">➕</div>
+        <h3>Mathematics</h3>
+        <p>Arithmetic, algebra, geometry, trigonometry and statistics — building strong logical and analytical foundations.</p>
+        <span class="course-tag">Class 1–10</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon" style="background: #f3e5f5;">🔬</div>
+        <h3>Science</h3>
+        <p>Physics, Chemistry and Biology with hands-on lab experiments. Prepares students for SEE and higher studies.</p>
+        <span class="course-tag">Class 6–10</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon" style="background: #fce4ec;">🌍</div>
+        <h3>Social Studies</h3>
+        <p>History, geography, civics and economics — understanding Nepal and the wider world.</p>
+        <span class="course-tag">Class 1–10</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon" style="background: #e0f2f1;">💻</div>
+        <h3>Computer Science</h3>
+        <p>Basic computing, MS Office, introduction to programming and internet skills for the digital age.</p>
+        <span class="course-tag">Class 6–10</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon" style="background: #f9fbe7;">🙏</div>
+        <h3>Moral Education &amp; HPE</h3>
+        <p>Health, Physical Education, yoga, values and moral science to build character alongside academic skills.</p>
+        <span class="course-tag">Class 1–10</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon" style="background: #fff8e1;">🎨</div>
+        <h3>Optional Math &amp; Art</h3>
+        <p>Optional Mathematics for advanced students plus creative arts and drawing for all grade levels.</p>
+        <span class="course-tag">Class 9–10</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRA CURRICULUM -->
+<section id="extra">
+  <div class="container">
+    <div class="section-line"></div>
+    <h2 class="section-title">Extra-Curricular Activities</h2>
+    <p class="section-sub">We believe learning goes beyond textbooks. Our activities help students discover their passions and talents.</p>
+
+    <div class="extra-grid">
+      <div class="extra-card">
+        <span class="icon">⚽</span>
+        <h3>Sports & Athletics</h3>
+        <p>Football, volleyball, cricket, athletics and annual sports meet. Students represent the school in district competitions.</p>
+      </div>
+
+      <div class="extra-card">
+        <span class="icon">🎭</span>
+        <h3>Cultural Programs</h3>
+        <p>Annual day celebrations, Dashain-Tihar programs, drama performances and traditional cultural events.</p>
+      </div>
+
+      <div class="extra-card">
+        <span class="icon">🎤</span>
+        <h3>Debate & Speech</h3>
+        <p>Inter-school debate competitions, public speaking workshops and elocution contests in Nepali and English.</p>
+      </div>
+
+      <div class="extra-card">
+        <span class="icon">🎨</span>
+        <h3>Art & Drawing</h3>
+        <p>Drawing competitions, poster making, rangoli and creative arts to develop imagination and artistic skills.</p>
+      </div>
+
+      <div class="extra-card">
+        <span class="icon">📝</span>
+        <h3>Essay & Quiz</h3>
+        <p>Essay writing competitions, general knowledge quizzes and inter-school academic olympiads.</p>
+      </div>
+
+      <div class="extra-card">
+        <span class="icon">🌱</span>
+        <h3>Eco Club</h3>
+        <p>Environmental awareness, tree plantation drives, cleanliness campaigns and nature education activities.</p>
+      </div>
+
+      <div class="extra-card">
+        <span class="icon">📖</span>
+        <h3>Library Club</h3>
+        <p>Reading programs, storytelling sessions, book reviews and developing a love of reading among students.</p>
+      </div>
+
+      <div class="extra-card">
+        <span class="icon">🤝</span>
+        <h3>Student Council</h3>
+        <p>Student leadership body that organizes events, voices student concerns and develops leadership skills.</p>
+      </div>
+
+      <div class="extra-card">
+        <span class="icon">🏕️</span>
+        <h3>Educational Tours</h3>
+        <p>Annual educational trips to historical and natural sites across Nepal for experiential learning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHERS -->
+<section id="teachers">
+  <div class="container">
+    <div class="section-line"></div>
+    <h2 class="section-title">Our Teaching Staff</h2>
+    <p class="section-sub">Meet our dedicated and experienced teachers. Feel free to contact them for academic queries.</p>
+
+    <div class="teachers-grid">
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-1">DT</div>
+        <div class="teacher-info">
+          <h3>Mr. Dinesh Thapa</h3>
+          <div class="subject">Principal / Administration</div>
+          <div class="phone">📞 <a href="tel:+977071522100">071-522100</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-2">RK</div>
+        <div class="teacher-info">
+          <h3>Mr. Ram Kumar Shrestha</h3>
+          <div class="subject">Mathematics</div>
+          <div class="phone">📞 <a href="tel:+9779845001234">984-5001234</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-3">SM</div>
+        <div class="teacher-info">
+          <h3>Ms. Sunita Mahato</h3>
+          <div class="subject">English Language</div>
+          <div class="phone">📞 <a href="tel:+9779841002345">984-1002345</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-4">BK</div>
+        <div class="teacher-info">
+          <h3>Ms. Bina Karki</h3>
+          <div class="subject">Nepali Language</div>
+          <div class="phone">📞 <a href="tel:+9779806003456">980-6003456</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-5">PP</div>
+        <div class="teacher-info">
+          <h3>Mr. Prakash Poudel</h3>
+          <div class="subject">Science (Physics)</div>
+          <div class="phone">📞 <a href="tel:+9779825004567">982-5004567</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-6">KT</div>
+        <div class="teacher-info">
+          <h3>Ms. Kamala Thapa</h3>
+          <div class="subject">Science (Biology)</div>
+          <div class="phone">📞 <a href="tel:+9779807005678">980-7005678</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-7">NR</div>
+        <div class="teacher-info">
+          <h3>Mr. Nabin Rana</h3>
+          <div class="subject">Social Studies</div>
+          <div class="phone">📞 <a href="tel:+9779847006789">984-7006789</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-8">SG</div>
+        <div class="teacher-info">
+          <h3>Mr. Suresh Gautam</h3>
+          <div class="subject">Computer Science</div>
+          <div class="phone">📞 <a href="tel:+9779861007890">986-1007890</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-9">AS</div>
+        <div class="teacher-info">
+          <h3>Ms. Anita Sharma</h3>
+          <div class="subject">Science (Chemistry)</div>
+          <div class="phone">📞 <a href="tel:+9779822008901">982-2008901</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-10">MJ</div>
+        <div class="teacher-info">
+          <h3>Ms. Mina Joshi</h3>
+          <div class="subject">Moral Ed. &amp; HPE</div>
+          <div class="phone">📞 <a href="tel:+9779803009012">980-3009012</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-11">BG</div>
+        <div class="teacher-info">
+          <h3>Mr. Bijay Gurung</h3>
+          <div class="subject">Optional Mathematics</div>
+          <div class="phone">📞 <a href="tel:+9779848010123">984-8010123</a></div>
+        </div>
+      </div>
+
+      <div class="teacher-card">
+        <div class="teacher-avatar av-12">ST</div>
+        <div class="teacher-info">
+          <h3>Ms. Sabita Tamang</h3>
+          <div class="subject">Art &amp; Drawing</div>
+          <div class="phone">📞 <a href="tel:+9779814011234">981-4011234</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Contact box -->
+    <div style="margin-top: 2.5rem; background: white; border-radius: 14px; border: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between;">
+      <div>
+        <h3 style="color: var(--green); margin-bottom: 0.3rem; font-size: 1.1rem;">📍 School Address</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Kalika Manavgyan Secondary School<br>Butwal-12, Rupandehi, Lumbini Province, Nepal</p>
+      </div>
+      <div>
+        <h3 style="color: var(--green); margin-bottom: 0.3rem; font-size: 1.1rem;">📞 Office Contact</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Phone: 071-522100<br>Mon–Fri: 10:00 AM – 4:00 PM</p>
+      </div>
+      <div>
+        <h3 style="color: var(--green); margin-bottom: 0.3rem; font-size: 1.1rem;">🕐 School Hours</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Sunday – Friday<br>10:00 AM – 4:00 PM</p>
+      </div>
+      <div>
+        <h3 style="color: var(--green); margin-bottom: 0.3rem; font-size: 1.1rem;">📅 Admission</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Open for 2081 B.S.<br>Contact office for details</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h3>Kalika Manavgyan Secondary School</h3>
+  <p>Butwal-12, Rupandehi, Lumbini Province, Nepal</p>
+  <p>Principal: Mr. Dinesh Thapa &nbsp;|&nbsp; Phone: 071-522100</p>
+  <div class="footer-bottom">
+    &copy; 2081 B.S. Kalika Manavgyan Secondary School. All rights reserved. &nbsp;|&nbsp; Website by Student Project
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for all nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Fade-in animation on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.course-card, .extra-card, .teacher-card, .value-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
