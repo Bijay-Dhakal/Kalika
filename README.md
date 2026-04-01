@@ -1,2 +1,0 @@
-# Kalika
-Kalika Website
